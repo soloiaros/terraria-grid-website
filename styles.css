@@ -1,3 +1,7 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -11,10 +15,14 @@ body {
   grid-auto-flow: row;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(45, 1fr);
+
 }
 
 .cell {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border: 1px dotted white;
+
+  scroll-snap-align: start;
 }
