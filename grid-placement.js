@@ -50,7 +50,12 @@ function swapTiles(gridObjectName) {
   stateSwitchers[gridObjectName] = !stateSwitchers[gridObjectName];
   for (tileCoordinate of interactiveTilesCoordinates[gridObjectName]) {
     let gridTile = document.querySelector(`[data-col='${tileCoordinate[0]}'][data-row='${tileCoordinate[1]}']`);
-    gridTile.style.backgroundImage = `url('grid-dynamic-tiles/${gridObjectName}/${stateSwitchers[gridObjectName]}/row-${tileCoordinate[1]}-column-${tileCoordinate[0]}.png')`
+    let swapImage = new Image();
+    let swapImageURL = `grid-dynamic-tiles/${gridObjectName}/${stateSwitchers[gridObjectName]}/row-${tileCoordinate[1]}-column-${tileCoordinate[0]}.png`;
+    swapImage.src = swapImageURL;
+    swapImage.onload = function() {
+      gridTile.style.backgroundImage = `url('${swapImageURL}')`;
+    }
   }
 }
 
