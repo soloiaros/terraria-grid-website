@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'pixelated-headings';
+    src: url('fonts/pixelated-headings/Tiny5-Regular.woff2') format('woff2'),
+        url('fonts/pixelated-headings/Tiny5-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 html {
   scroll-snap-type: y mandatory;
 }
@@ -6,6 +15,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 .grid-container {
@@ -21,6 +31,48 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  border: 1px dotted white;
-  scroll-snap-align: start;
+  /* border: 1px dotted white; */
+  scroll-snap-align: end;
+}
+
+header {
+  font-family: 'pixelated-headings', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  height: min(25vh, 5rem);
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  font-size: 2rem;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+}
+
+header.background {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+header > ul {
+  margin: 0;
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+header a {
+  text-decoration: none;
+  color: snow;
+}
+
+header a:hover {
+  text-shadow: 3px 3px gray;
+}
+
+header a:active {
+  text-shadow: 3px 3px gray;
+  transform: translateY(2px) translateX(2px);
 }
